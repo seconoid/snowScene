@@ -1,0 +1,38 @@
+@charset="utf8";
+
+.field {
+	position: relative;
+	margin: 10px;
+	width: 600px;
+	height: 400px;
+	background: #cc3;
+}
+
+.snow {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background: #cff;
+	left: 20px;
+	top: 20px;
+	animation: fall 8s; 
+	animation-fill-mode: forwards;
+}
+
+.button {
+	background-repeat: no-repeat; 
+	animation: fall 3s; 
+}  
+@keyframes fall { 
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+ 	100%  { 
+ 		transform:  translate(0px, 300px);
+ 		opacity: 0;
+ 	} 
+} 
