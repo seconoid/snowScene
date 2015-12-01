@@ -1,11 +1,56 @@
 @charset="utf8";
 
-.field {
+div {
+	margin: 0;
+	padding: 0;
+}
+
+#drowArea {
 	position: relative;
 	margin: 10px;
-	width: 600px;
-	height: 400px;
-	background: #cc3;
+	width: 1200px;
+	height: 650px;
+	background: #175899;
+	overflow: hidden;
+}
+
+#tree {
+	position: absolute;
+	bottom: 100px;
+}
+
+.branch {
+	position: absolute;
+	width: 30px;
+	bottom: 0;
+	height: 200px;
+	border-radius: 15px;
+	left: 900px;
+	background: #f7f7ff;
+	transform-origin: 50% 100% 0;
+	z-index: 5;
+}
+
+
+.field {
+	position: relative;
+	height: 100px;
+	top: 550px;
+	background: #234;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.field .field1 {
+	position: relative;
+	height: 15px;
+	background: #dff1f9;
+}
+
+.field .field2 {
+	position: relative;
+	height: 25px;
+	background: #4d7dbb;
 }
 
 .snow {
@@ -16,23 +61,19 @@
 	background: #cff;
 	left: 20px;
 	top: 20px;
-	animation: fall 8s; 
+	animation: fall 11s; 
 	animation-fill-mode: forwards;
 }
 
-.button {
-	background-repeat: no-repeat; 
-	animation: fall 3s; 
-}  
 @keyframes fall { 
 	0% {
 		opacity: 0;
 	}
-	50% {
-		opacity: 1;
+	30% {
+		opacity: 0.9;
 	}
  	100%  { 
- 		transform:  translate(0px, 300px);
+ 		transform:  translate(0px, 550px);
  		opacity: 0;
  	} 
 } 

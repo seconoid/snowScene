@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+@charset="utf8";
+
+div {
+	margin: 0;
+	padding: 0;
+}
+
+#drowArea {
+	position: relative;
+	margin: 10px;
+	width: 1200px;
+	height: 650px;
+	background: #175899;
+	overflow: hidden;
+}
+
+#tree {
+	position: absolute;
+	bottom: 100px;
+}
+
+.branch {
+	position: absolute;
+	width: 40px;
+	bottom: 0;
+	height: 170px;
+	left: 900px;
+	background: #f7f7ff;
+	z-index: 5;
+}
+
+.field {
+	position: relative;
+	height: 100px;
+	top: 550px;
+	background: #234;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.field .field1 {
+	position: relative;
+	height: 15px;
+	background: #dff1f9;
+}
+
+.field .field2 {
+	position: relative;
+	height: 25px;
+	background: #4d7dbb;
+}
+
+.snow {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background: #cff;
+	left: 20px;
+	top: 20px;
+	animation: fall 16s; 
+	animation-fill-mode: forwards;
+}
+
+@keyframes fall { 
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+ 	100%  { 
+ 		transform:  translate(0px, 550px);
+ 		opacity: 0;
+ 	} 
+} 
+</style>
+<title>降雪</title>
+</head>
+<body onload="timer()">
+	<div id="drowArea">
+		<div id="tree">
+			<div class="branch"></div>
+		</div>
+		<div class="field">
+			<!-- <div class="tree"></div> -->
+			<div class="field1"></div>
+			<div class="field2"></div>
+		</div>
+		<div class="snow"></div>
+	</div>
+	<button onClick="addSnowSelf()">追加</button>
+<script>
+var w = 1200;
+
+// 一定間隔
+function timer() {
+	addSnow();
+	setTimeout("timer()", 500);
+} 
+
+// 雪降らせる
+function addSnow() {
+	var snow = document.createElement('div');
+	snow.className = "snow";
+	snow.style.left = setX() + "px";
+	snow.style.top = setY() + "px";
+	document.getElementById('drowArea').appendChild(snow);
+}
+
+function addSnowSelf() {
+	var snow = document.createElement('div');
+	snow.className = "snow";
+	snow.style.backgroundColor = "#f00";
+	snow.style.left = setX() + "px";
+	snow.style.top = setY() + "px";
+	document.getElementById('drowArea').appendChild(snow);
+}
+
+// x軸を乱数で生成
+function setX() {
+	var x = Math.floor( Math.random() * w);
+	return x;
+}
+
+// Y軸を乱数で生成
+function setY() {
+	var y = Math.floor( Math.random() * 100);
+	return y;
+}
+
+// 木を生成
+function makeTree() {
+	var y = 300;
+
+}
+</script>
+</body>
+</html>

@@ -3,15 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="./snow.css">
-	<title>Document</title>
+	<title>降雪</title>
 </head>
 <body onload="timer()">
-	<div id="field" class="field">
+	<div id="drowArea">
+		<div id="tree">
+			<div class="branch"></div>
+		</div>
+		<div class="field">
+			<div class="field1"></div>
+			<div class="field2"></div>
+		</div>
 		<div class="snow"></div>
 	</div>
-	<div class="button" onclick="add()">
-		追加
-	</div>
+	<button onClick="addSnowSelf()">MORE!</button>
+	<button onClick="makeTree()">FEVER!</button>
 	<script src="./snow.js"></script>
 </body>
 </html>
