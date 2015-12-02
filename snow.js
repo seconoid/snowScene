@@ -1,9 +1,9 @@
 var w = 1200;
 
-var treeX = 900; // .branch left
+var treeX = 800; // .branch left
 var treeY = 200;
 var treeLength = 200;
-var rotate = 45;
+var rotate = 30;
 
 // 一定間隔
 function timer() {
@@ -46,7 +46,19 @@ function setY() {
 // 木を生成
 function makeTree() {
 	treeLength = treeLength * 3 / 4;
-	// branch.style.transform = "rotate(30deg)"
+
+	branching();
+	getPosition();
+
+	// var branch = document.createElement('div');
+	// branch.className = "branch";
+	// branch.style.bottom = treeY + "px";
+	// branch.style.height = treeLength + "px";
+	// branch.style.transform = "rotate(-45deg)";
+	// document.getElementById('tree').appendChild(branch);	
+}
+
+function branching() {
 	var branch = document.createElement('div');
 	branch.className = "branch";
 	branch.style.left = treeX + "px"
@@ -55,14 +67,19 @@ function makeTree() {
 	branch.style.transform = "rotate(" + rotate + "deg)";
 	document.getElementById('tree').appendChild(branch);
 
-	sin = Math.sin(Math.PI / ((rotate - 90) / 90));
-	cos = Math.cos(Math.PI / ((rotate - 90) / 90));
-	treeY += treeY + sin * treeLength;
-	treeX += treeX + cos * treeLength;
 	// var branch = document.createElement('div');
 	// branch.className = "branch";
+	// branch.style.left = treeX + "px"
 	// branch.style.bottom = treeY + "px";
 	// branch.style.height = treeLength + "px";
-	// branch.style.transform = "rotate(-45deg)";
-	// document.getElementById('tree').appendChild(branch);	
+	// branch.style.transform = "rotate(-" + rotate  + "deg)";
+	// document.getElementById('tree').appendChild(branch);
+}
+
+function getPosition() {
+	sin = Math.sin(Math.PI / (180 / (90-rotate)));
+	cos = Math.cos(Math.PI / (180 / (90-rotate)));
+	treeY += (sin * treeLength);
+	treeX += (cos * treeLength);
+	rotate += 60;
 }

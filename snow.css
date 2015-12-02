@@ -7,7 +7,6 @@ div {
 
 #drowArea {
 	position: relative;
-	margin: 10px;
 	width: 1200px;
 	height: 650px;
 	background: #175899;
@@ -25,7 +24,7 @@ div {
 	bottom: 0;
 	height: 200px;
 	border-radius: 15px;
-	left: 900px;
+	left: 800px;
 	background: #f7f7ff;
 	transform-origin: 50% 100% 0;
 	z-index: 5;
